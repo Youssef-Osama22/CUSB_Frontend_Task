@@ -1,20 +1,24 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useLoginMutation } from '../api/apiSlice';
 import type { Role } from '../types';
 
 const ACCOUNTS: { role: Role; label: string }[] = [
   { role: 'member', label: 'Log in as Member' },
-  { role: 'hr', label: 'Log in as HR' },
-  { role: 'admin', label: 'Log in as Admin' },
+  { role: 'hr',     label: 'Log in as HR' },
+  { role: 'admin',  label: 'Log in as Admin' },
 ];
 
 export default function LoginPage() {
   const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
+  // RoleGuard passes the originally-requested location via router state
+  const location = useLocation();
+  const from = (location.state as { from?: Location })?.from?.pathname ?? '/';
 
   const handleLogin = async (role: Role) => {
     await login(role).unwrap();
-    navigate('/');
+    // Send the user back to where they came from (or home)
+    navigate(from, { replace: true });
   };
 
   return (

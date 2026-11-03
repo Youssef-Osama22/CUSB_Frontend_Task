@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import RoleGuard from './components/RoleGuard';
 import HomePage from './pages/HomePage';
 import EventsPage from './pages/EventsPage';
 import EventDetailsPage from './pages/EventDetailsPage';
@@ -24,15 +25,22 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
+        {/* Public routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:id" element={<EventDetailsPage />} />
         <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/admin" element={<AdminEventsPage />} />
+        {/* Admin-only routes */}
+        <Route element={<RoleGuard allow="admin" />}>
+          <Route path="/admin" element={<AdminEventsPage />} />
+        </Route>
 
-        <Route path="/hr" element={<HrDashboardPage />} />
-        <Route path="/hr/applications" element={<HrApplicationsPage />} />
+        {/* HR-only routes */}
+        <Route element={<RoleGuard allow="hr" />}>
+          <Route path="/hr" element={<HrDashboardPage />} />
+          <Route path="/hr/applications" element={<HrApplicationsPage />} />
+        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
       </Route>
