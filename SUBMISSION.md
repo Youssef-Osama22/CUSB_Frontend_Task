@@ -1,11 +1,16 @@
 # Submission
 
-Name:
-GitHub username:
+Name:  youssef osama 
+GitHub username: Youssef-Osama22
 Time spent:
 
 ## 1. Codebase notes
-In your own words, max ~15 lines. Cover: folder structure, routing, state management (Redux + RTK Query), and the API layer.
+main is the entiry point  that includes tha app(route tree ) manage the routes 
+api carries the fake api and endpoints  implementation 
+components  the file  we put the reused  components across the project like the navbar
+pages it the file that has all the pages that we import it to app to make each a route
+note : i didnt study redux tool kit but i will try to figure it out throw the task(all i know  it help in auth procces)
+
 
 
 
