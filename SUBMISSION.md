@@ -34,4 +34,4 @@ Also list anything you did not finish.
 
 
 ## 5. AI usage
-Which tools did you use, and for which parts? Which parts did you write yourself? (This will not count against you. It helps us prepare better interview questions.)
+1-i used antigravity to make task to completely bec i dont have any idea about this table i have idea about the useeffect hook and the life cycle and how to fetch a data from api  (but i understand that we make it sharefolder becs w  need it in  more than one place so instead of write it in everyplace)
