@@ -2,7 +2,7 @@
 
 Name:  youssef osama 
 GitHub username: Youssef-Osama22
-Time spent:
+Time spent: a day with antigravity becs of the assigments 
 
 ## 1. Codebase notes
 main is the entiry point  that includes tha app(route tree ) manage the routes 
